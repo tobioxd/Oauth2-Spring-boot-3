@@ -1,0 +1,41 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:oracle:thin:@192.168.1.2:1521:orcl
+    username: minh
+    password: minhpro
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        format_sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: < Your clientId >
+            clientSecret: < Your clientSecret >
+            scope:
+              - user:email
+              - read:user
+          google:
+            clientId: < Your clientId >
+            clientSecret: < Your clientSecret >
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: < Your clientId >
+            clientSecret: < Your clientSecret >
+            scope:
+              - email
+              - public_profile
+  
